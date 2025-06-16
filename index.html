@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Calculadora de Orçamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--INTERPRETAÇÃO-->
+    <!--Parte inicial, mostrando as opções de serviço-->
+    <h1>Calculadora de Orçamento</h1>
+    <p>Aqui na <strong>Libras Brasil</strong> você encontra os melhores profissionais com os melhores preços. Faça já o seu orçamento!</p>
+    <form id="formulario"> <!--Tag form p/ o usuário inserir os dados-->
+        <label for="tipoServico">Tipo de Serviço:</label>
+        <select id="tipoServico" onchange="mostrarCampos()">
+            <option value="selecione">Selecione</option> <!--opções dentro do select-->
+            <option value="interpretacao">Interpretação</option>
+            <option value="traducao">Tradução</option>
+        </select>
+        <br><br>
+        <div id="camposInterpretacao" style="display: none;"> <!--área inicialmente escondida-->
+            <label for="nomeEvento">Nome do Evento:</label>
+            <input type="text" id="nomeEvento"> <!--campo de texto onde o usuário pode digitar informações-->
+            <br><br>
+            <label for="tipoEvento">Tipo do Evento:</label>
+            <select id="tipoEvento"> <!--menu suspendo com as opções de evento-->
+                <option value="juridico">Jurídico</option>
+                <option value="educacao">Educação</option>
+                <option value="artistico">Artístico/Cultural</option>
+                <option value="videoconferencia">Vídeo Conferência</option>
+            </select>
+            <br><br>
+            <label for="tempoEvento">Tempo do Evento (em minutos):</label>
+            <input type="number" id="tempoEvento">
+            <br><br>
+            <label for="gravado">Ficará Gravado?</label>
+            <select id="gravado">
+                <option value="nao">Não</option>
+                <option value="sim">Sim</option>
+            </select>
+            <br><br>
+            <label for="localEvento">Local do Evento:</label>
+            <input type="text" id="localEvento">
+        </div>
+<!--TRADUÇÃO-->
+        <div id="camposTraducao" style="display: none;"> <!--esconde o menu inicialmente-->
+            <label for="tituloMaterial">Título do Material:</label>
+            <input type="text" id="tituloMaterial">
+            <br><br>
+            <label for="tipoMaterial">Tipo do Material:</label>
+            <select id="tipoMaterial">
+                <option value="videobook">VideoBook</option>
+                <option value="tv">Programa de TV</option>
+                <option value="propaganda">Propaganda de Marcas</option>
+                <option value="filme">Filme</option>
+                <option value="documentario">Documentário</option>
+            </select>
+            <br><br>
+            <label for="tempoVideo">Tempo do Vídeo (minutos):</label>
+            <input type="number" id="tempoVideo">
+            <br><br>
+            <label for="legendagem">Legendagem?</label>
+            <select id="legendagem">
+                <option value="nao">Não</option>
+                <option value="sim">Sim</option>
+            </select>
+            <br><br>
+             <label for="edicao">Edição simples ou completa do material?</label>
+            <select id="edicao">
+                <option value="simples">Simples</option>
+                <option value="completa">Completa</option>
+            </select>
+            <br><br>
+            <label for="descricao">Descrição (Opcional):</label>
+            <input type="text" id="descricao">
+        </div>
+        <button type="button" onclick="calcularOrcamento()">Calcular Orçamento</button>
+        <p id="resultado"></p>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
